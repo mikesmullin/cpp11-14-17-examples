@@ -1,2 +1,2 @@
 %: %.cc
-	g++ -std=c++11 $< -o $@
+	/usr/bin/g++-7 -std=c++1z -O0 -S $< -o $@
