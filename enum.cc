@@ -1,5 +1,12 @@
 #include <iostream>
 
+enum {
+  X,
+  Y,
+  Z
+};
+
+
 // old enum
 // can be casted to integer
 enum Enum1 {
@@ -17,6 +24,8 @@ enum class Enum2 {
 };
 
 main() {
+    
+    std::cout << Z << std::endl;
     
     // can we use pattern matching?
     
