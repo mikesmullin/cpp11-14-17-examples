@@ -8,9 +8,13 @@
 // | b = std::move(a)    | move       | user move          | user copy      | user move       | default move   | you can accidentally get a copy when you intended a move (inefficient, but not lossy) |
 // | b = A()             | move       | user move          | user copy      | user move       | default move   | you can accidentally get a copy when you intended a move (inefficient, but not lossy) |
 // 
-// conclusion:                                                                         
+// ## conclusion:                                                                         
 // - explicit move/copy behavior can behave unexpectedly if user-defined ops are present.
 //
+// ## cool tools:
+// - https://www.onlinegdb.com/online_c++_compiler
+// - https://godbolt.org/
+// -https://tableconvert.com/csv-to-markdown
 
 #include <iostream>
 
