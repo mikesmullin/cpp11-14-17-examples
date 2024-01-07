@@ -343,5 +343,47 @@ void main()
 ```
 
 ---
+## Preprocessor Directives and Macros
+
+The preprocessor in C++ is a stage of compilation that processes the source code before actual compilation. It handles directives prefixed with `#`, manipulating the code based on these directives before the code is compiled.
+
+- `#define`: Defines macros with a specified name and value or code snippet. Can be written like a function, or a simple string replacement. It is used to replace occurrences of the defined macro with its corresponding value or code during preprocessing. It enhances code readability, enables code reuse, and facilitates conditional compilation.  
+  example:  
+  ```cpp
+  #define PI 3.14159
+  #define SQUARE(x) ((x) * (x))
+
+  int main() {
+      double radius = 5.0;
+      double area = PI * SQUARE(radius); // Replaced with 3.14159 * ((5.0) * (5.0))
+      return 0;
+  }
+  ```
+
+- `#include`: Inserts contents of other files into the current file. (Literally just string replacement.)  
+  ***NOTICE:** This is an important difference from the import systems of other languages, such as CommonJS in Node.JS, or the ClassLoader in Java.*
+  - In cpp, the compiler treats all files equally
+    - header/source distinctions and matching names are irrelevant/organizational (ie. for IDE, static analysis, etc.)
+  - `#include` directives get replaced with file contents, exactly like a string template system.
+    - "translation unit" refers to a source file along with all its included header files
+    - you get exactly one `.obj` for each file named on the cli, not for the file tree they may `#include`.
+  - `#include` can occur anywhere in file, very top is merely for organization.
+  - each `#include` causes multiple code injections in final program; use guards (`#pragma once`, `#ifndef`).
+    - you can test this with compiler-specific debug features:
+      - win `cl.exe`: `#pragma message("compiler stdout will contain this...")`
+      - nix `gcc`: `#pragma message "compiler stdout will contain this..."`
+      - mac `clang`: `#warning "compiler stdout will contain this..."`
+  - Declarations may be repeated (no compiler error).
+    - A "forward declaration" is one that allows you to refer to it before it has been defined. 
+      - This feature is required to achieve circular dependencies.
+  - Definitions may not appear before declarations ("unresolved symbol").
+  - Definitions must not be repeated ("already defined").
+  - Declarations are not matched to their definitions until the linker phase.
+    - By default, all symbols are accessible outside of their translation unit unless `static` keyword is used. (has this special meaning when used outside of classes)
+      - this is the opposite of modern module systems which require `export` keyword to expose a symbol.
+  - `#include <>` (angle bracket) syntax searches std lib, system dirs, and include paths (intended for third-party/vendored headers).
+  - `#include ""` (double-quote) syntax searches current directory, then include path (intended for project or user-authored headers).
+
+---
 ## References
 - https://en.cppreference.com/w/
