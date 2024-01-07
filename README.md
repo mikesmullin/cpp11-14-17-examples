@@ -348,7 +348,6 @@ void main()
 The preprocessor in C++ is a stage of compilation that processes the source code before actual compilation. It handles directives prefixed with `#`, manipulating the code based on these directives before the code is compiled.
 
 - `#define`: Defines macros with a specified name and value or code snippet. Can be written like a function, or a simple string replacement. It is used to replace occurrences of the defined macro with its corresponding value or code during preprocessing. It enhances code readability, enables code reuse, and facilitates conditional compilation.  
-  example:  
   ```cpp
   #define PI 3.14159
   #define SQUARE(x) ((x) * (x))
@@ -374,13 +373,13 @@ The preprocessor in C++ is a stage of compilation that processes the source code
       - nix `gcc`: `#pragma message "compiler stdout will contain this..."`
       - mac `clang`: `#warning "compiler stdout will contain this..."`
   - Declarations may be repeated (no compiler error).
-    - A "forward declaration" is one that allows you to refer to it before it has been defined. 
+    - A "forward declaration" is one that allows you to refe.-r to it before it has been defined. 
       - This feature is required to achieve circular dependencies.
   - Definitions may not appear before declarations ("unresolved symbol").
   - Definitions must not be repeated ("already defined").
   - Declarations are not matched to their definitions until the linker phase.
-    - By default, all symbols are accessible outside of their translation unit unless `static` keyword is used. (has this special meaning when used outside of classes)
-      - this is the opposite of modern module systems which require `export` keyword to expose a symbol.
+    - By default, all symbols are accessible/linkable outside of their translation unit unless `static` keyword is used. (has this special meaning when used outside of classes)
+      - C++20 introduces the `module`, `import`, `export` keywords; these help avoid global namespace pollution.
   - `#include <>` (angle bracket) syntax searches std lib, system dirs, and include paths (intended for third-party/vendored headers).
   - `#include ""` (double-quote) syntax searches current directory, then include path (intended for project or user-authored headers).
 
