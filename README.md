@@ -384,5 +384,33 @@ The preprocessor in C++ is a stage of compilation that processes the source code
   - `#include ""` (double-quote) syntax searches current directory, then include path (intended for project or user-authored headers).
 
 ---
+## Memory management
+
+- How RAII avoids memory leaks
+  - Overriding/deleting class methods:
+    - default/parameterized/copy/move constructors
+    - destructor
+    - copy/move assignment operator
+- Lifetime/Ownership considerations
+  - When to pass a fn parameter as a pointer
+  - When and how to return a pointer
+  - When and how to use smart pointers
+  - My opinionated approach (simplifies choices)
+
+---
+## Data Oriented Design/Programming (DOD)
+
+Principles:
+1. Separate code from data
+   - FP: stateless "pure" functions
+2. Everything is a list (lisp) tree
+   - optimize for L1+L2+L3 cache (ie. 64B cache lines, prefetcher)
+   - design for a target (ie. GPU)
+3. Use Immutable data structures
+   - FP: no side-effects
+   - thread-safe sharing
+4. Data schema becomes enforced at runtime vs. compile time
+
+---
 ## References
 - https://en.cppreference.com/w/
