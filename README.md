@@ -151,7 +151,7 @@ String literals can have various prefixes indicating different character encodin
 | Prefix | Example | Description |
 |-|-|-|
 | `L` | `L"wide string"` | wide encoding (platform-dependent; not portable)
-| `u8` | `u9"UTF-8 string"` | UTF-8 encoding
+| `u8` | `u8"UTF-8 string"` | UTF-8 encoding
 | `u` | `u"UTF-16 string"` | UTF-16 encoding
 | `U` | `U"UTF-32 string"` | UTF-32 encoding
 | `R` | `R"raw string"` | ASCII encoding. May not contain escape sequences.
