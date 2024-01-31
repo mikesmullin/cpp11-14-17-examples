@@ -373,7 +373,7 @@ The preprocessor in C++ is a stage of compilation that processes the source code
       - nix `gcc`: `#pragma message "compiler stdout will contain this..."`
       - mac `clang`: `#warning "compiler stdout will contain this..."`
   - Declarations may be repeated (no compiler error).
-    - A "forward declaration" is one that allows you to refe.-r to it before it has been defined. 
+    - A "forward declaration" is one that allows you to refer to it before it has been defined. 
       - This feature is required to achieve circular dependencies.
   - Definitions may not appear before declarations ("unresolved symbol").
   - Definitions must not be repeated ("already defined").
