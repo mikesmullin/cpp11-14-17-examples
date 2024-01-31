@@ -277,7 +277,7 @@ int main()
 ## Classes
 
 Here's an example of class inheritance in C++ using a base class Animal, 
-nd subclasses Bat and Cat that inherit from Animal 
+and subclasses Bat and Cat that inherit from Animal 
 and override the sound field via their constructors:
 
 ```cpp
